@@ -1,0 +1,11 @@
+ Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        TextBox2.Text = f(Val(TextBox1.Text))
+    End Sub
+    Function f(ByVal x As Integer)
+        If x = 1 Or x = 2 Then
+            Return 1
+        Else
+            Return f(x - 1) + f(x - 2)
+        End If
+    End Function
+End Class

@@ -1,0 +1,11 @@
+ Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        TextBox2.Text = c(Val(TextBox1.Text))
+    End Sub
+    Function c(ByVal x As Integer)
+        Dim r As Integer = 1
+        For i = 1 To x
+            r = r * i
+        Next
+        Return r
+    End Function
+End Class

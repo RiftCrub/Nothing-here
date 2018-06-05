@@ -1,0 +1,13 @@
+Public Class Form1
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        TextBox2.Text = n(Val(TextBox1.Text))
+    End Sub
+Function n(ByVal a As Integer)
+        If a = 1 Then
+            n = 1
+        Else
+            n = a * n(a - 1)
+        End If
+    End Function
+End Class

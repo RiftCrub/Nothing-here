@@ -1,0 +1,34 @@
+Public Class Form1
+    Dim a As Boolean = False
+    Dim sx, sy As Integer
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        PictureBox1.Image = Image.FromFile("box1.gif")
+        Randomize()
+        PictureBox1.Left = Int(Rnd() * 120)
+        PictureBox1.Top = Int(Rnd() * 120)
+    End Sub
+
+    Private Sub PictureBox1_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseDown
+        a = True
+        sx = e.X : sy = e.Y
+    End Sub
+
+    Private Sub PictureBox1_MouseEnter(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseEnter
+        PictureBox1.Image = Image.FromFile("box2.gif")
+    End Sub
+
+    Private Sub PictureBox1_MouseLeave(ByVal sender As Object, ByVal e As System.EventArgs) Handles PictureBox1.MouseLeave
+        PictureBox1.Image = Image.FromFile("box1.gif")
+    End Sub
+
+    Private Sub PictureBox1_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseMove
+        If a = True Then
+            PictureBox1.Left = PictureBox1.Left + e.X
+            PictureBox1.Top = PictureBox1.Top + e.Y
+        End If
+    End Sub
+
+    Private Sub PictureBox1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseUp
+        a = False
+    End Sub
+End Class

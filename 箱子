@@ -1,0 +1,33 @@
+Public Class Form1
+    Dim A As Integer = 10
+
+    Private Sub Form1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+
+        Select Case e.KeyCode
+            Case Keys.Left
+                If PictureBox1.Left > 0 Then PictureBox1.Left -= A
+            Case Keys.Right
+                If PictureBox1.Right < Me.ClientSize.Width Then PictureBox1.Left += A
+            Case Keys.Down
+                If PictureBox1.Bottom < Me.ClientSize.Height Then PictureBox1.Top += A
+            Case Keys.Up
+                If PictureBox1.Top < 0 Then PictureBox1.Top -= A
+        End Select
+        If PictureBox1.Left >= PictureBox2.Left And PictureBox1.Top >= PictureBox2.Top Then
+            MsgBox("成功")
+        End If
+    End Sub
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Randomize()
+        PictureBox1.Left = Int(Rnd() * 300)
+        PictureBox1.Top = Int(Rnd() * 300)
+    End Sub
+
+    Private Sub PictureBox2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub PictureBox2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+End Class
